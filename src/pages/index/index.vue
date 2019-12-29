@@ -15,7 +15,7 @@ export default {
     }
   },
   mounted() {
-    
+    console.log('tools',tools.checkID('360313199105174016'))
   },
   methods:{
     goPath(e){
