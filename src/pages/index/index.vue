@@ -1,7 +1,10 @@
 <template>
   <div class="index">
-    <div class="head">demol页面</div>
-    <Button @onClick="goPath">国企更1</Button>
+    <!-- <div class="head">demol页面</div> -->
+    <Header title="demol页面" leftText="返回" rightText="首页" :leftIcon="leftIcon"></Header>
+    <div style="height:60px"></div>
+    <Button @onClick="goPath" type="info" :text="text"></Button>
+    <!-- <Overlay><div class="mwc">加载中...</div></Overlay> -->
   </div>
 </template>
 <script>
@@ -11,7 +14,11 @@ export default {
   },
   data(){
     return {
-      gqg:''
+      gqg:'',
+      text:'请点击',
+      type:'default',
+      color:'#07c160',
+      leftIcon:''
     }
   },
   mounted() {
@@ -29,6 +36,12 @@ export default {
   .index{
     .head{
       font-size:32px;
+    }
+    .mwc{
+      position: absolute;
+      top:50%;
+      left:50%;
+      transform: translate(-50%,-50%)
     }
   }
 </style>

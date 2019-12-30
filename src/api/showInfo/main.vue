@@ -18,7 +18,7 @@
           <div class="error-code">{{errorTitle}}：{{errorCode}}</div>
         </div>
         <div class="show-info-content-b">
-          <div class="btn" v-for="(item,index) in items" @click="btnClick(index)" :class="item.active ? 'btnActive': ''">{{item.text}}</div>
+          <div class="btn" v-for="(item,index) in items" @click="btnClick(index)" :key="index" :class="item.active ? 'btnActive': ''">{{item.text}}</div>
         </div>
       </div>
     </div>

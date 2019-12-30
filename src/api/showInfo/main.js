@@ -50,6 +50,7 @@ ccbShowInfo.show = options => {
     } else {
       instance.center = false;
     }
+    //成功回调
     instance.btnClick = function(index) {
       instance.show = false;
       if (typeof options.success == "function") {

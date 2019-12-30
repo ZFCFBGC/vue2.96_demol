@@ -7,7 +7,13 @@ import gqg from "@/api/api.js"
 
 Vue.config.productionTip = false;
 import Button from "@/components/base/button/index.js";
+import Overlay from "@/components/base/overlay/index.js"
+import Header from "@/components/base/header/index.js"
+import Tab from "@/components/base/tab/index.js"
 Vue.use(Button);
+Vue.use(Overlay);
+Vue.use(Header)
+Vue.use(Tab)
 /* eslint-disable no-new */
 new Vue({
   el: "#app",
