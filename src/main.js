@@ -3,7 +3,9 @@
 import Vue from "vue";
 import App from "./App";
 import router from "./router";
-import gqg from "@/api/api.js"
+import gqg from "@/api/api.js";
+import tools from "./tools.js";
+
 
 Vue.config.productionTip = false;
 import Button from "@/components/base/button/index.js";
@@ -23,6 +25,7 @@ new Vue({
   beforeCreate() {
     window.rootVue = this;
     window.gqg = gqg;
+    window.tools = tools;
     window.ccbzhrmghgwswswwsMapList_createMapContext_ccbzhrmghgwswswwsMapList = [];
     window.ccbAutoGetClassName = function(ele, classn) {
         if (!document.getElementsByClassName) {
