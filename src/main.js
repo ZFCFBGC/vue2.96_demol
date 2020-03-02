@@ -5,17 +5,23 @@ import App from "./App";
 import router from "./router";
 import gqg from "@/api/api.js";
 import tools from "./tools.js";
-
-
 Vue.config.productionTip = false;
 import Button from "@/components/base/button/index.js";
 import Overlay from "@/components/base/overlay/index.js"
 import Header from "@/components/base/header/index.js"
 import Tab from "@/components/base/tab/index.js"
+import Loading from "@/components/base/loading/index.js"
+import Popup from "@/components/base/popup/index.js"
+import Cell from "@/components/base/cell/index.js"
+import Page from "@/components/base/page/index.js"
 Vue.use(Button);
 Vue.use(Overlay);
-Vue.use(Header)
-Vue.use(Tab)
+Vue.use(Header);
+Vue.use(Tab);
+Vue.use(Loading);
+Vue.use(Popup);
+Vue.use(Cell);
+Vue.use(Page);
 /* eslint-disable no-new */
 new Vue({
   el: "#app",
