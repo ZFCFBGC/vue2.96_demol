@@ -14,6 +14,7 @@ import Loading from "@/components/base/loading/index.js"
 import Popup from "@/components/base/popup/index.js"
 import Cell from "@/components/base/cell/index.js"
 import Page from "@/components/base/page/index.js"
+import TabNav from "@/components/base/tabNav/index.js"
 Vue.use(Button);
 Vue.use(Overlay);
 Vue.use(Header);
@@ -22,6 +23,7 @@ Vue.use(Loading);
 Vue.use(Popup);
 Vue.use(Cell);
 Vue.use(Page);
+Vue.use(TabNav);
 /* eslint-disable no-new */
 new Vue({
   el: "#app",

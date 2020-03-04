@@ -5,8 +5,23 @@
 </template>
 
 <script>
+import tool from './tools'
 export default {
-  name: 'App'
+  name: 'App',
+  data(){
+    return{
+      r:{
+        id:'1',
+        title:'好地方'
+      }
+    }
+  },
+  methods:{
+
+  },
+  mounted(){
+    console.log('这是什么？',tool.encode_version)
+  }
 }
 </script>
 
