@@ -5,31 +5,49 @@ import App from "./App";
 import router from "./router";
 import gqg from "@/api/api.js";
 import tools from "./tools.js";
-
-// element-ui引入
-import {
-  Pagination,
-  Input,
-  Button,
-  Tree,
-  Icon,
-  Table,
-  TableColumn,
-  Dropdown,
-  DropdownMenu,
-  DropdownItem
-} from "element-ui";
+import VueI18n from 'vue-i18n'
+import locale from 'element-ui/lib/locale'
+import enLocale from 'element-ui/lib/locale/lang/en'
+import zhLocale from 'element-ui/lib/locale/lang/zh-CN'
+import twLocale from 'element-ui/lib/locale/lang/zh-TW'
+import ElementUI from 'element-ui';
+import Cookies from 'js-cookie'
 import "element-ui/lib/theme-chalk/index.css";
-Vue.use(Pagination);
-Vue.use(Input);
-Vue.use(Button);
-Vue.use(Tree);
-Vue.use(Icon);
-Vue.use(Table);
-Vue.use(TableColumn);
-Vue.use(Dropdown);
-Vue.use(DropdownMenu);
-Vue.use(DropdownItem);
+
+Vue.prototype.$cookie = Cookies
+Vue.use(Cookies)
+Vue.use(VueI18n)
+Vue.use(ElementUI, { zhLocale })
+// InitLanguage  这里引入了vue-cookie,是为了将用户选择的语言存储到Cookie里，在以后访问站点不需要重新选择语言
+function InitLanguage() {
+  console.log('cookie',Cookies)
+  return Cookies.get('DefaultLanguage') == null ? 'zh-CN' : Cookies.get('DefaultLanguage');
+}
+
+const i18n = new VueI18n({
+  locale:  InitLanguage(), // 语言标识,默认汉语,先去cookie查找，如果存在并有效，cookie值即为默认语言类型；否则默认为中文简体
+  messages: {
+    'en-US': Object.assign(require("../static/lang/en"),enLocale),
+    'zh-CN': Object.assign(require("../static/lang/zh-CN"),zhLocale),
+    'zh-TW': Object.assign(require("../static/lang/zh-TW"),twLocale)
+  }
+});
+locale.i18n((key, value) => i18n.t(key, value))
+// element-ui引入
+
+// Vue.use(Pagination);
+// Vue.use(Input);
+// Vue.use(Button);
+// Vue.use(Tree);
+// Vue.use(Icon);
+// Vue.use(Table);
+// Vue.use(TableColumn);
+// Vue.use(Dropdown);
+// Vue.use(DropdownMenu);
+// Vue.use(DropdownItem);
+// Vue.use(Select);
+// Vue.use(Option);
+// Vue.use(OptionGroup);
 Vue.config.productionTip = false;
 //mport Button from "@/components/base/button/index.js";
 //Vue.use(Button);
@@ -37,6 +55,7 @@ Vue.config.productionTip = false;
 new Vue({
   el: "#app",
   router,
+  i18n,
   components: { App },
   template: "<App/>",
   beforeCreate() {

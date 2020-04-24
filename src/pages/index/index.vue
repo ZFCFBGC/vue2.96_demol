@@ -1,6 +1,6 @@
 <template>
   <div class="index">
-    <div class="head">demol页面</div>
+    <div class="head">{{this.$t("localization.hello") }}</div>
     <!-- <Button @onClick="goPath">国企更1</Button> -->
     <div class="tab" ref="tab">
       <div
